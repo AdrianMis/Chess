@@ -14,10 +14,9 @@ public abstract class Figura {
         this.name = name;
     }
 
-    public abstract void bicie(Pole pole, Gracz Ja, Gracz Oponent, Figura Figura,);
+    public abstract void bicie(Pole pole, Gracz Ja, Gracz Oponent, Figura Figura);
 
-
-    public abstract void Ruch(Pole naPole, Gracz Ja, Gracz Oponent,Figura Figura, Pole Szachownica[][]);
+    public abstract void Ruch(Pole naPole, Gracz Ja, Gracz Oponent,Figura Figura, Pole Szachownica[][], Figura MojaFigura);
 
     public static void Dead() {
 

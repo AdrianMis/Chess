@@ -2,15 +2,25 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static Figura Figura = new Pustak(0, 0, 0, "Pustak", false);
+
     public static void main(String[] args) {
+        Figura Pustak;
         //Tworzenie graczy
         Gracz Bialy = new Gracz(true, true, "Biały");
         Gracz Czarny = new Gracz(false, false, "Czarny");
 
         //Tworzenie Figur
-        Figura Pustak1 = new Pionek(1, 2, 0, "a2", true);
-        Figura Pustak2 = new Pionek(1, 3, 0, "a3", true);
-        Figura Figura = new Pionek(1, 1, 1, "a1", true);
+        Pionek P1 = new Pionek(1, 2, 1, "", true);
+        Pionek P2 = new Pionek(2, 2, 1, "", true);
+        Pionek P3 = new Pionek(3, 2, 1, "", true);
+        Pionek P4 = new Pionek(4, 2, 1, "", true);
+        Pionek P5 = new Pionek(5, 2, 1, "", true);
+        Pionek P6 = new Pionek(6, 2, 1, "", true);
+        Pionek P7 = new Pionek(7, 2, 1, "", true);
+        Pionek P8 = new Pionek(8, 2, 1, "", true);
+        Figura Figura = new Pustak(0, 0, 0, "Pustak", false);
+
 
         //TWORZENIE TABLICY DWUWYMIAROWEJ OBIEKTÓW POLE, które stworzą szachownice
         Pole[][] Szachownica = new Pole[8][8];
@@ -25,16 +35,16 @@ public class Main {
         Szachownica[6][0] = new Pole(7, 1, 1, Figura, true);
         Szachownica[7][0] = new Pole(8, 1, 1, Figura, true);
         //a2-h2
-        Szachownica[0][1] = new Pole(1, 2, 1, Pustak1, true);
-        Szachownica[1][1] = new Pole(2, 2, 1, Figura, true);
-        Szachownica[2][1] = new Pole(3, 2, 1, Figura, true);
-        Szachownica[3][1] = new Pole(4, 2, 1, Figura, true);
-        Szachownica[4][1] = new Pole(5, 2, 1, Figura, true);
-        Szachownica[5][1] = new Pole(6, 2, 1, Figura, true);
-        Szachownica[6][1] = new Pole(7, 2, 1, Figura, true);
-        Szachownica[7][1] = new Pole(8, 2, 1, Figura, true);
+        Szachownica[0][1] = new Pole(1, 2, 1, P1, true);
+        Szachownica[1][1] = new Pole(2, 2, 1, P2, true);
+        Szachownica[2][1] = new Pole(3, 2, 1, P3, true);
+        Szachownica[3][1] = new Pole(4, 2, 1, P4, true);
+        Szachownica[4][1] = new Pole(5, 2, 1, P5, true);
+        Szachownica[5][1] = new Pole(6, 2, 1, P6, true);
+        Szachownica[6][1] = new Pole(7, 2, 1, P7, true);
+        Szachownica[7][1] = new Pole(8, 2, 1, P8, true);
         //a3-h3
-        Szachownica[0][2] = new Pole(1, 3, 0, Pustak2, true);
+        Szachownica[0][2] = new Pole(1, 3, 0, Figura, true);
         Szachownica[1][2] = new Pole(2, 3, 0, Figura, true);
         Szachownica[2][2] = new Pole(3, 3, 0, Figura, true);
         Szachownica[3][2] = new Pole(4, 3, 0, Figura, true);
@@ -100,52 +110,42 @@ public class Main {
         //CLUE
 
         while (true) {
+            // Z POLA
+            System.out.println("Z pola: x (1 do 8)");
+            zX = scan.nextInt();
+            System.out.println("y (1 do 8)");
+            zY = scan.nextInt();
+
+            // NA POLE
+            System.out.println("Idziesz na pole: x (1 do 8)");
+            naX = scan.nextInt();
+            System.out.println("y (1 do 8)");
+            naY = scan.nextInt();
             //Bialy
             if (Bialy.kogoKolej == true) {
-                // Z POLA
-                System.out.println("Z pola: x (1 do 8)");
-                zX = scan.nextInt();
-                System.out.println("y (1 do 8)");
-                zY = scan.nextInt();
-
-                // NA POLE
-                System.out.println("Idziesz na pole: x (1 do 8)");
-                naX = scan.nextInt();
-                System.out.println("y (1 do 8)");
-                naY = scan.nextInt();
-
-                //
                 for (int i = 0; i < 8; i++) {
                     for (int j = 0; j < 8; j++) {
                         if ((Szachownica[i][j].poleY == zY) && (Szachownica[i][j].poleX == zX)) {
-                            Szachownica[i][j].Figura.Ruch(Szachownica[(naX - 1)][(naY - 1)], Bialy, Czarny, Szachownica[(zX - 1)][(zY - 1)].getFigura());
+                            Szachownica[i][j].Figura.Ruch(Szachownica[(naX - 1)][(naY - 1)], Bialy, Czarny, Szachownica[(naX - 1)][(naY - 1)].getFigura(), Szachownica, Szachownica[(zX - 1)][(zY - 1)].getFigura());
+                            System.out.println(Szachownica[i][j].Figura + " Go to: " + Szachownica[i][j].Figura.cordX + Szachownica[i][j].Figura.cordY);
                         }
                     }
                 }
-            //CZARNY
+                //CZARNY
             } else if (Bialy.kogoKolej == false) {
-                // Z POLA
-                System.out.println("Z pola: x (1 do 8)");
-                zX = scan.nextInt();
-                System.out.println("y (1 do 8)");
-                zY = scan.nextInt();
-
-                // NA POLE
-                System.out.println("Idziesz na pole: x (1 do 8)");
-                naX = scan.nextInt();
-                System.out.println("y (1 do 8)");
-                naY = scan.nextInt();
-
-                //
                 for (int i = 0; i < 8; i++) {
                     for (int j = 0; j < 8; j++) {
                         if ((Szachownica[i][j].poleY == zY) && (Szachownica[i][j].poleX == zX)) {
-                            Szachownica[i][j].Figura.Ruch(Szachownica[(naX - 1)][(naY - 1)], Czarny, Bialy, Szachownica[(zX - 1)][(zY - 1)].getFigura());
+                            Szachownica[i][j].Figura.Ruch(Szachownica[(naX - 1)][(naY - 1)], Czarny, Bialy, Szachownica[(naX - 1)][(naY - 1)].getFigura(), Szachownica, Szachownica[(zX - 1)][(zY - 1)].getFigura());
                         }
                     }
                 }
 
             } else System.out.println("Spróbuje jeszcze raz");
         }
+    }
+
+    public static Figura getPustak() {
+        return Figura;
     }
 }
