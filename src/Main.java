@@ -19,6 +19,17 @@ public class Main {
         Pionek P6 = new Pionek(6, 2, 1, "", true);
         Pionek P7 = new Pionek(7, 2, 1, "", true);
         Pionek P8 = new Pionek(8, 2, 1, "", true);
+
+        //CZanre
+        Pionek P11 = new Pionek(1, 7, 2, "", true);
+        Pionek P12 = new Pionek(2, 7, 2, "", true);
+        Pionek P13 = new Pionek(3, 7, 2, "", true);
+        Pionek P14 = new Pionek(4, 7, 2, "", true);
+        Pionek P15 = new Pionek(5, 7, 2, "", true);
+        Pionek P16 = new Pionek(6, 7, 2, "", true);
+        Pionek P17 = new Pionek(7, 7, 2, "", true);
+        Pionek P18 = new Pionek(8, 7, 2, "", true);
+        //Pustak
         Figura Figura = new Pustak(0, 0, 0, "Pustak", false);
 
 
@@ -80,14 +91,14 @@ public class Main {
         Szachownica[6][5] = new Pole(7, 6, 0, Figura, true);
         Szachownica[7][5] = new Pole(8, 6, 0, Figura, true);
         //a7-h7
-        Szachownica[0][6] = new Pole(1, 7, 2, Figura, true);
-        Szachownica[1][6] = new Pole(2, 7, 2, Figura, true);
-        Szachownica[2][6] = new Pole(3, 7, 2, Figura, true);
-        Szachownica[3][6] = new Pole(4, 7, 2, Figura, true);
-        Szachownica[4][6] = new Pole(5, 7, 2, Figura, true);
-        Szachownica[5][6] = new Pole(6, 7, 2, Figura, true);
-        Szachownica[6][6] = new Pole(7, 7, 2, Figura, true);
-        Szachownica[7][6] = new Pole(8, 7, 2, Figura, true);
+        Szachownica[0][6] = new Pole(1, 7, 2, P11, true);
+        Szachownica[1][6] = new Pole(2, 7, 2, P12, true);
+        Szachownica[2][6] = new Pole(3, 7, 2, P13, true);
+        Szachownica[3][6] = new Pole(4, 7, 2, P14, true);
+        Szachownica[4][6] = new Pole(5, 7, 2, P15, true);
+        Szachownica[5][6] = new Pole(6, 7, 2, P16, true);
+        Szachownica[6][6] = new Pole(7, 7, 2, P17, true);
+        Szachownica[7][6] = new Pole(8, 7, 2, P18, true);
         //a8-h8
         Szachownica[0][7] = new Pole(1, 8, 2, Figura, true);
         Szachownica[1][7] = new Pole(2, 8, 2, Figura, true);
@@ -123,19 +134,23 @@ public class Main {
             naY = scan.nextInt();
             //Bialy
             if (Bialy.kogoKolej == true) {
+                System.out.println("Biały");
                 for (int i = 0; i < 8; i++) {
                     for (int j = 0; j < 8; j++) {
                         if ((Szachownica[i][j].poleY == zY) && (Szachownica[i][j].poleX == zX)) {
+                            System.out.println(Szachownica[i][j].Figura.name + " Go to: " + naX + naY);
                             Szachownica[i][j].Figura.Ruch(Szachownica[(naX - 1)][(naY - 1)], Bialy, Czarny, Szachownica[(naX - 1)][(naY - 1)].getFigura(), Szachownica, Szachownica[(zX - 1)][(zY - 1)].getFigura());
-                            System.out.println(Szachownica[i][j].Figura + " Go to: " + Szachownica[i][j].Figura.cordX + Szachownica[i][j].Figura.cordY);
+
                         }
                     }
                 }
                 //CZARNY
             } else if (Bialy.kogoKolej == false) {
+                System.out.println("Czarny");
                 for (int i = 0; i < 8; i++) {
                     for (int j = 0; j < 8; j++) {
                         if ((Szachownica[i][j].poleY == zY) && (Szachownica[i][j].poleX == zX)) {
+                            System.out.println(Szachownica[i][j].Figura.name + " Go to: " + naX + naY);
                             Szachownica[i][j].Figura.Ruch(Szachownica[(naX - 1)][(naY - 1)], Czarny, Bialy, Szachownica[(naX - 1)][(naY - 1)].getFigura(), Szachownica, Szachownica[(zX - 1)][(zY - 1)].getFigura());
                         }
                     }

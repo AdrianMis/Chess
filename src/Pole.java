@@ -1,5 +1,4 @@
 public class Pole {
-    String name;
      int poleX;
      int poleY;
     boolean exist;
@@ -30,24 +29,18 @@ public class Pole {
 
     //wyświetla numer pola np: E4
     void nazwa(){
-        switch (poleX) {
-            case 1:
-                System.out.print("A");
-            case 2:
-                System.out.print("B");
-            case 3:
-                System.out.print("C");
-            case 4:
-                System.out.print("D");
-            case 5:
-                System.out.print("E");
-            case 6:
-                System.out.print("F");
-            case 7:
-                System.out.print("G");
-            case 8:
-                System.out.print("H");
-        }
+if (poleX==1){ System.out.print("A");}
+else if (poleX==2){ System.out.print("B");}
+else if (poleX==3){ System.out.print("C");}
+else if (poleX==4){ System.out.print("D");}
+else if (poleX==5){ System.out.print("E");}
+else if (poleX==6){ System.out.print("F");}
+else if (poleX==7){ System.out.print("G");}
+else if (poleX==8){ System.out.print("H");}
+else {
+    System.out.println("Pole >>> void nazwa >>> if z ");
+}
+
         System.out.println(poleY);
     }
 
