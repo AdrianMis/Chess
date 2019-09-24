@@ -1,36 +1,43 @@
+import com.Okienko;
+import javax.swing.JFrame;
 import java.util.Scanner;
 
 public class Main {
 
-    private static Figura Figura = new Pustak(0, 0, 0, "Pustak", false);
+    private static Figura Figura = new Pustak(0, 0, 0, "--", false);
 
     public static void main(String[] args) {
+        Okienko Szachy= new Okienko();
         Figura Pustak;
         //Tworzenie graczy
         Gracz Bialy = new Gracz(true, true, "Biały");
         Gracz Czarny = new Gracz(false, false, "Czarny");
 
         //Tworzenie Figur
-        Pionek P1 = new Pionek(1, 2, 1, "", true);
-        Pionek P2 = new Pionek(2, 2, 1, "", true);
-        Pionek P3 = new Pionek(3, 2, 1, "", true);
-        Pionek P4 = new Pionek(4, 2, 1, "", true);
-        Pionek P5 = new Pionek(5, 2, 1, "", true);
-        Pionek P6 = new Pionek(6, 2, 1, "", true);
-        Pionek P7 = new Pionek(7, 2, 1, "", true);
-        Pionek P8 = new Pionek(8, 2, 1, "", true);
+        Pionek P1 = new Pionek(1, 2, 1, "bP", true);
+        Pionek P2 = new Pionek(2, 2, 1, "bP", true);
+        Pionek P3 = new Pionek(3, 2, 1, "bP", true);
+        Pionek P4 = new Pionek(4, 2, 1, "bP", true);
+        Pionek P5 = new Pionek(5, 2, 1, "bP", true);
+        Pionek P6 = new Pionek(6, 2, 1, "bP", true);
+        Pionek P7 = new Pionek(7, 2, 1, "bP", true);
+        Pionek P8 = new Pionek(8, 2, 1, "bP", true);
+        Skoczek Skoczek1 = new Skoczek(2, 1, 1, "bS", true);
+        Skoczek Skoczek2 = new Skoczek(7, 1, 1, "bS", true);
 
         //CZanre
-        Pionek P11 = new Pionek(1, 7, 2, "", true);
-        Pionek P12 = new Pionek(2, 7, 2, "", true);
-        Pionek P13 = new Pionek(3, 7, 2, "", true);
-        Pionek P14 = new Pionek(4, 7, 2, "", true);
-        Pionek P15 = new Pionek(5, 7, 2, "", true);
-        Pionek P16 = new Pionek(6, 7, 2, "", true);
-        Pionek P17 = new Pionek(7, 7, 2, "", true);
-        Pionek P18 = new Pionek(8, 7, 2, "", true);
+        Pionek P11 = new Pionek(1, 7, 2, "cP", true);
+        Pionek P12 = new Pionek(2, 7, 2, "cP", true);
+        Pionek P13 = new Pionek(3, 7, 2, "cP", true);
+        Pionek P14 = new Pionek(4, 7, 2, "cP", true);
+        Pionek P15 = new Pionek(5, 7, 2, "cP", true);
+        Pionek P16 = new Pionek(6, 7, 2, "cP", true);
+        Pionek P17 = new Pionek(7, 7, 2, "cP", true);
+        Pionek P18 = new Pionek(8, 7, 2, "cP", true);
+        Skoczek Skoczek11 = new Skoczek(2, 8, 1, "cS", true);
+        Skoczek Skoczek12 = new Skoczek(7, 8, 1, "cS", true);
         //Pustak
-        Figura Figura = new Pustak(0, 0, 0, "Pustak", false);
+        Figura Figura = new Pustak(0, 0, 0, "--", false);
 
 
         //TWORZENIE TABLICY DWUWYMIAROWEJ OBIEKTÓW POLE, które stworzą szachownice
@@ -38,12 +45,12 @@ public class Main {
 
         //a1-h1
         Szachownica[0][0] = new Pole(1, 1, 1, Figura, true);
-        Szachownica[1][0] = new Pole(2, 1, 1, Figura, true);
+        Szachownica[1][0] = new Pole(2, 1, 1, Skoczek1, true);
         Szachownica[2][0] = new Pole(3, 1, 1, Figura, true);
         Szachownica[3][0] = new Pole(4, 1, 1, Figura, true);
         Szachownica[4][0] = new Pole(5, 1, 1, Figura, true);
         Szachownica[5][0] = new Pole(6, 1, 1, Figura, true);
-        Szachownica[6][0] = new Pole(7, 1, 1, Figura, true);
+        Szachownica[6][0] = new Pole(7, 1, 1, Skoczek2, true);
         Szachownica[7][0] = new Pole(8, 1, 1, Figura, true);
         //a2-h2
         Szachownica[0][1] = new Pole(1, 2, 1, P1, true);
@@ -101,12 +108,12 @@ public class Main {
         Szachownica[7][6] = new Pole(8, 7, 2, P18, true);
         //a8-h8
         Szachownica[0][7] = new Pole(1, 8, 2, Figura, true);
-        Szachownica[1][7] = new Pole(2, 8, 2, Figura, true);
+        Szachownica[1][7] = new Pole(2, 8, 2, Skoczek11, true);
         Szachownica[2][7] = new Pole(3, 8, 2, Figura, true);
         Szachownica[3][7] = new Pole(4, 8, 2, Figura, true);
         Szachownica[4][7] = new Pole(5, 8, 2, Figura, true);
         Szachownica[5][7] = new Pole(6, 8, 2, Figura, true);
-        Szachownica[6][7] = new Pole(7, 8, 2, Figura, true);
+        Szachownica[6][7] = new Pole(7, 8, 2, Skoczek12, true);
         Szachownica[7][7] = new Pole(8, 8, 2, Figura, true);
 
 
@@ -118,6 +125,13 @@ public class Main {
         int naX;
         int naY;
 
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 7; j >= 0; j--) {
+                System.out.print(" " + Szachownica[j][i].Figura.name + " ");
+            }
+            System.out.println();
+        }
         //CLUE
 
         while (true) {
@@ -138,7 +152,6 @@ public class Main {
                 for (int i = 0; i < 8; i++) {
                     for (int j = 0; j < 8; j++) {
                         if ((Szachownica[i][j].poleY == zY) && (Szachownica[i][j].poleX == zX)) {
-                            System.out.println(Szachownica[i][j].Figura.name + " Go to: " + naX + naY);
                             Szachownica[i][j].Figura.Ruch(Szachownica[(naX - 1)][(naY - 1)], Bialy, Czarny, Szachownica[(naX - 1)][(naY - 1)].getFigura(), Szachownica, Szachownica[(zX - 1)][(zY - 1)].getFigura());
 
                         }
@@ -150,13 +163,22 @@ public class Main {
                 for (int i = 0; i < 8; i++) {
                     for (int j = 0; j < 8; j++) {
                         if ((Szachownica[i][j].poleY == zY) && (Szachownica[i][j].poleX == zX)) {
-                            System.out.println(Szachownica[i][j].Figura.name + " Go to: " + naX + naY);
                             Szachownica[i][j].Figura.Ruch(Szachownica[(naX - 1)][(naY - 1)], Czarny, Bialy, Szachownica[(naX - 1)][(naY - 1)].getFigura(), Szachownica, Szachownica[(zX - 1)][(zY - 1)].getFigura());
                         }
                     }
                 }
 
-            } else System.out.println("Spróbuje jeszcze raz");
+            } else {
+                System.out.println("Spróbuje jeszcze raz");
+            }
+
+            for (int i = 0; i < 8; i++) {
+                for (int j = 7; j >= 0; j--) {
+                    System.out.print(" " + Szachownica[j][i].Figura.name + " ");
+                }
+                System.out.println();
+
+            }
         }
     }
 

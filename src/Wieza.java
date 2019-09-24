@@ -1,6 +1,6 @@
-/*public class Wieza extends Figura{
-    Wieza(int cordX, int cordY, int wlasciciel, String name) {
-        super(cordX, cordY, wlasciciel, name);
+public class Wieza extends Figura{
+    Wieza(int cordX, int cordY, int wlasciciel, String name, boolean exist) {
+        super(cordX, cordY, wlasciciel, name, exist);
     }
 
     @Override
@@ -9,10 +9,7 @@
     }
 
     @Override
-    public void Ruch(Pole Pole, Gracz Ja, Gracz Oponent, Figura Figura) {
+    public void Ruch(Pole naPole, Gracz Ja, Gracz Oponent, Figura Figura, Pole[][] Szachownica, Figura MojaFigura) {
 
     }
-
-
 }
-*/

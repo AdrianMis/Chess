@@ -48,7 +48,7 @@ public class Pionek extends Figura {
             /////BIAŁY
             if (Ja.kolor == true) {
                 //Kto jest wlascicielem figury
-                if (Figura.getWlasciciel() == 1) {
+                if (MojaFigura.getWlasciciel() == 1) {
                     //1 do przodu
                     if (Pole.poleX == cordX && Pole.poleY == (cordY + 1)) {
                         //Czy na polu nic nie ma
@@ -138,9 +138,10 @@ public class Pionek extends Figura {
                         //POPRAWNIE WYKONANY RUCH
 
                     }
-                    //Bicie w przelocie
-
-                    else {
+                    //Bicie w przelocie tu bedzie
+                    else if (false) {
+                        System.out.println("bicie w przelocie tu bedzie");
+                    } else {
                         System.out.println("Nie możesz pójść w to miejsce");
                     }
                 } else {
@@ -154,7 +155,7 @@ public class Pionek extends Figura {
             ////////////KOLOR CZARNY
             else if (Ja.kolor == false) {
                 // czy figura jest Twoja?
-                if (Figura.getWlasciciel() == 2) {
+                if (MojaFigura.getWlasciciel() == 2) {
                     //1 do przodu
                     if (Pole.poleX == cordX && Pole.poleY == (cordY - 1)) {
                         //Czy na polu nic nie ma
@@ -246,8 +247,9 @@ public class Pionek extends Figura {
 
                     }
                     //Bicie w przelocie
-
-                    else {
+                    else if (false) {
+                        System.out.println("Tu bedzie bicie w przelocie");
+                    } else {
                         System.out.println("Nie możesz pójść w to miejsce");
                     }
                 } else {
@@ -255,11 +257,7 @@ public class Pionek extends Figura {
                     System.out.println("Ruszasz się nie swoją figurą");
                 }//If własciciel figury
             }// IF CZARNY kolor
-
-
             else System.out.println("Nie ma takiego gracza");
-
-
         }//kolor gracza IF
         else System.out.println("Sie nie da, bo Pole nie istnieje");
 
